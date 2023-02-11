@@ -12,23 +12,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="header_wrap">
-    <!-- 헤더 - 페이지 머리 -->
-    머리
+    <header class="header_wrap">
+        <!-- 헤더 - 페이지 머리 -->
+        머리
 
-</header>
-<section class="section_wrap">
-    중앙
+    </header>
+    <section class="section_wrap">
+        <div class="write_wrap">
+            <div class="daily_wrap">
+                <form method="post" id="daily-form">
+                        <h2>Daily</h2>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="오늘의 할일을 입력하세요"
+                                   aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">등록</button>
+                        </div>
+                        <div class="daily_wrap" id="daily-list"></div>
+                </form>
+            </div>
+            <div class="todo_wrap">
+                    <form method="post" id="todo-form">
+                            <h2>To-do</h2>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="오늘의 할일을 입력하세요"
+                                       aria-label="Recipient's username" aria-describedby="button-addon3">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon3">등록</button>
+                            </div>
+                            <div class="todo_wrap" id="todo-list"></div>
+                    </form>
+            </div>
+            <div class="study_wrap">
+                <form method="post" id="study-form">
+                    <h2>Study</h2>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="오늘의 할일을 입력하세요"
+                               aria-label="Recipient's username" aria-describedby="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon4">등록</button>
+                    </div>
+                    <div class="study_wrap" id="study-list"></div>
+                </form>
+            </div>
+        </div>
+    </section>
 
-</section>
 
+    <footer class="footer_wrap">
+            <!-- 푸터 - 페이지 하단 -->
+        <div class="wise_wrap">
+            <input type="text" id="wise">
+        </div>
 
-<footer class="footer_wrap">
-    <!-- 푸터 - 페이지 하단 -->
-
-    하단
-</footer>
-
+            하단
+        </footer>
 
 
     <script src="../static/js/login.js"></script>
