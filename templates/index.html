@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href=".././static/css/login.css">
     <link rel="stylesheet" type="text/css" href=".././static/css/common.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="../static/js/common.js.js"></script>
+    <script src="../static/js/login.js"></script>
+
 </head>
 <body>
     <header class="header_wrap">
@@ -19,15 +22,25 @@
     </header>
     <section class="section_wrap">
         <div class="write_wrap">
+            <!--날짜선택-->
+            <div class="today_date">
+            <input type="date" id="datepicker" class="today_date">
+            </div>
+            <!--todo_리스트들-->
             <div class="daily_wrap">
                 <form method="post" id="daily-form">
                         <h2>Daily</h2>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="오늘의 할일을 입력하세요"
+                            <input id="daily_com" type="text" class="form-control" placeholder="오늘의 할일을 입력하세요"
                                    aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">등록</button>
+                            <button onclick="check_daily()" class="btn btn-outline-secondary" type="button" id="button-addon2">등록</button>
                         </div>
-                        <div class="daily_wrap" id="daily-list"></div>
+                        <hr>
+                        <div class="daily_wrap" id="daily-list">
+
+
+
+                        </div>
                 </form>
             </div>
             <div class="todo_wrap">
@@ -66,7 +79,5 @@
         </footer>
 
 
-    <script src="../static/js/login.js"></script>
-    <script src="../static/js/common.js"></script>
 </body>
 </html>
