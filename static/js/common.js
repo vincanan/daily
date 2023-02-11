@@ -35,7 +35,7 @@
                 data: {user_give: user, date_give: date, comment_give: comment},
                 success: function (response) {
                     alert(response['msg'])
-                    window.location.reload()
+                    show_daily()
                 }
             });
         }
@@ -93,7 +93,7 @@
                 data: {num_give: num},
                 success: function (response) {
                     alert(response["msg"])
-                    window.location.reload()
+                    show_daily()
                 }
             });
         }
@@ -105,7 +105,7 @@
                 data: {num_give: num},
                 success: function (response) {
                     alert(response["msg"])
-                    window.location.reload()
+                   show_daily()
                 }
             });
 
@@ -131,7 +131,7 @@
                 data: {user_give: user, date_give: date, comment_give: comment},
                 success: function (response) {
                     alert(response['msg'])
-                    window.location.reload()
+                    show_todo()
                 }
             });
         }
@@ -189,7 +189,7 @@
                 data: {num_give: num},
                 success: function (response) {
                     alert(response["msg"])
-                    window.location.reload()
+                   show_todo()
                 }
             });
         }
@@ -201,7 +201,7 @@
                 data: {num_give: num},
                 success: function (response) {
                     alert(response["msg"])
-                    window.location.reload()
+                    show_todo()
                 }
             });
 
@@ -227,7 +227,7 @@
                 data: {user_give: user, date_give: date, comment_give: comment},
                 success: function (response) {
                     alert(response['msg'])
-                    window.location.reload()
+                    show_study()
                 }
             });
         }
@@ -284,7 +284,7 @@
                 data: {num_give: num},
                 success: function (response) {
                     alert(response["msg"])
-                    window.location.reload()
+                   show_study()
                 }
             });
         }
@@ -296,7 +296,7 @@
                 data: {num_give: num},
                 success: function (response) {
                     alert(response["msg"])
-                    window.location.reload()
+                    show_study()
                 }
             });
 
