@@ -14,10 +14,8 @@ import datetime
 
 ca = certifi.where()
 
-client = MongoClient('mongodb+srv://kimnoc707:vkfkd0312@cluster0.wpr6ivo.mongodb.net/?retryWrites=true&w=majority',
-                     tlsCAFile=ca)
+client = MongoClient('mongodb+srv://test:sparta@cluster0.qli9s79.mongodb.net/?retryWrites=true&w=majority',tlsCAFile=ca)
 db = client.sparta_project
-
 SECRET_KEY = 'hojii'
 
 
@@ -230,6 +228,7 @@ def api_login():
 @app.route('/api/nick', methods=['GET'])
 def api_valid():
         token_receive = request.cookies.get('mytoken')
+        print(token_receive)
 
         try:
             # token을 시크릿키로 디코딩합니다.
@@ -238,7 +237,7 @@ def api_valid():
 
             # payload 안에 id가 들어있습니다.
             # 여기에선 그 예로 닉네임을 보내
-            userinfo = db.user.find_one({'id': payload['id']}, {'_id': 0})
+            userinfo = db.login.find_one({'id': payload['id']}, {'_id': 0})
             return jsonify({'result': 'success', 'nickname': userinfo['nick']})
         except jwt.ExpiredSignatureError:
             # 위를 실행했는데 만료시간이 지났으면 에러

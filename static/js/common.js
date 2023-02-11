@@ -11,6 +11,7 @@
         show_daily()
         show_todo()
         show_study()
+            nickname()
 	    }
 
 
@@ -329,6 +330,24 @@
 
             }
         })
+
+      function nickname() {
+        $.ajax({
+            type: "GET",
+            url: "/api/nick",
+            xhrFields: {withCredentials: true},
+
+            success: function (response) {
+                if (response['result'] == 'success') {
+                    temp_html = ''
+                    
+
+                } else {
+                    alert(response['msg'])
+                }
+            }
+        })
+    }
 
 
 

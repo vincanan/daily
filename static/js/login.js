@@ -42,24 +42,7 @@ function login() {
       }
 
 
-      function nickname() {
-        $.ajax({
-            type: "GET",
-            url: "/api/nick",
-            xhrFields: {withCredentials: true},
 
-            success: function (response) {
-                if (response['result'] == 'success') {
-                    console.log(response['result'])
-
-                } else {
-                    alert(response['msg'])
-                }
-            }
-        })
-    }
-
-    nickname();
 
 
 
