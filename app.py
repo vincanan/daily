@@ -20,11 +20,6 @@ client = MongoClient('mongodb+srv://kimnoc707:vkfkd0312@cluster0.wpr6ivo.mongodb
 db = client.sparta_project
 
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.qli9s79.mongodb.net/Cluster0?retryWrites=true&w=majority',
-                     tlsCAFile=ca)
-db = client.dbsparta
-
-
 SECRET_KEY = 'hojii'
 
 

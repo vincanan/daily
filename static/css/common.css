@@ -30,20 +30,6 @@ body {
     z-index: -2;
     background-image: url("https://imgix.theurbanlist.com/content/general/sunrise-narrabeen.jpg");
 }
-
-.header_wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    color: #F3F3F3;
-    background-color: transparent;
-    opacity: 1;
-    transition: opacity 1.2s ease-in-out;
-    padding: 0 20px;
-    position: relative;
-}
-
 .section_wrap {
     align-items: center;
     justify-content: center;
@@ -170,3 +156,10 @@ body {
     width:500Px;
     height:20px;
 }
+
+ .nick_top {
+     font-size: xx-large;
+     padding-left: 10px;
+     text-align: right;
+     vertical-align: middle;
+ }

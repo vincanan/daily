@@ -1,19 +1,18 @@
 
        //오늘 날짜값 불러오기
-        window.onload = function() {
-		today = new Date();
-		console.log("today.toISOString() >>>" + today.toISOString());
-		today = today.toISOString().slice(0, 10);
-		console.log("today >>>> " + today);
-		bir = document.getElementById("datepicker");
-		bir.value = today;
-        show_daily()
-	    }
+
+       today = new Date();
+       console.log("today.toISOString() >>>" + today.toISOString());
+       today = today.toISOString().slice(0, 10);
+       console.log("today >>>> " + today);
+       bir = document.getElementById("datepicker");
+       bir.value = today;
+       show_daily()
 
 
-       $(document).ready(function() {
-        $('#datepicker').on('input', (event) => show_daily());
-        });
+       $(document).ready(function () {
+           $('#datepicker').on('input', (event) => show_daily());
+       });
 
 
 

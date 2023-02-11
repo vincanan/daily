@@ -10,17 +10,18 @@
     <title>Mydaily</title>
     <link rel="stylesheet" type="text/css" href=".././static/css/login.css">
     <link rel="stylesheet" type="text/css" href=".././static/css/common.css">
+    <link rel="stylesheet" type="text/css" href=".././static/css/sign_up.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <script src="../static/js/common.js"></script>
-    <script src="../static/js/login.js"></script>
-
 </head>
 <body>
+
+</div>
     <header class="header_wrap">
-        <!-- 헤더 - 페이지 머리 -->
-        <div class="nickname_wrap">
-            <h1 class="nickname"></h1>
-        </div>
+        <div class="mytitle">
+            <span class="nick_top">{{nickname}}님 환영합니다.</span>
+            <button type="button" style="margin: 5px; float: right" class="btn btn-primary "
+                    onclick="logout()">로그아웃
+            </button>
 
     </header>
     <section class="section_wrap">
@@ -78,9 +79,11 @@
             <input type="text" id="wise">
         </div>
 
-            하단
         </footer>
 
+    <script src="../static/js/common.js"></script>
+    <script src="../static/js/login.js"></script>
+    <script src="../static/js/sign_up.js"></script>
 
 </body>
 </html>
