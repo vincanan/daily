@@ -28,7 +28,7 @@ body {
     background-size: cover;
     opacity: 1;
     z-index: -2;
-    background-image: url("https://imgix.theurbanlist.com/content/general/sunrise-narrabeen.jpg");
+    background-color: snow;
 }
 
 .header_wrap {
@@ -166,7 +166,13 @@ body {
 
 }
 
-#wise{
-    width:500Px;
-    height:20px;
+#wise {
+    width: 500Px;
+    height: 20px;
 }
+
+li {
+    list-style: none;
+}
+
+h2 { font-size : 20px; display: flex;}

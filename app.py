@@ -12,18 +12,11 @@ import hashlib
 # 토큰에 만료시간을 줘야하기 때문에, datetime 모듈도 사용합니다.
 import datetime
 
-
 ca = certifi.where()
 
 client = MongoClient('mongodb+srv://kimnoc707:vkfkd0312@cluster0.wpr6ivo.mongodb.net/?retryWrites=true&w=majority',
                      tlsCAFile=ca)
 db = client.sparta_project
-
-
-client = MongoClient('mongodb+srv://test:sparta@cluster0.qli9s79.mongodb.net/Cluster0?retryWrites=true&w=majority',
-                     tlsCAFile=ca)
-db = client.dbsparta
-
 
 SECRET_KEY = 'hojii'
 
@@ -41,7 +34,6 @@ def login():
 @app.route('/index')
 def main():
     return render_template('index.html')
-
 
 
 @app.route('/daily', methods=["POST"])
@@ -71,6 +63,114 @@ def daily_list():
     return jsonify({'comments': d_list})
 
 
+@app.route("/daily/done", methods=["POST"])
+def daily_done():
+    num_receive = request.form['num_give']
+    db.daily_list.update_one({'num': int(num_receive)}, {'$set': {'done': 1}})
+    # 데이터가 넘어올때 문자타입으로 넘어오므로 int타입으로 형변환 시켜줘야함
+
+    return jsonify({'msg': 'Daily 완료!'})
+
+
+@app.route("/daily/cancel", methods=["POST"])
+def daily_cancel():
+    num_receive = request.form['num_give']
+    db.daily_list.update_one({'num': int(num_receive)}, {'$set': {'done': 0}})
+    # 데이터가 넘어올때 문자타입으로 넘어오므로 int타입으로 형변환 시켜줘야함
+
+    return jsonify({'msg': 'Daily 취소!'})
+
+
+@app.route('/todo', methods=["POST"])
+def todo_comment():
+    date_receive = request.form['date_give']
+    user_receive = request.form['user_give']
+    comment_receive = request.form['comment_give']
+
+    t_list = list(db.todo_list.find({}, {'_id': False}))
+    count = len(t_list) + 1
+    doc = {
+        'num': count,
+        'date': date_receive,
+        'user': user_receive,
+        'comment': comment_receive,
+        'done': 0
+
+    }
+    db.todo_list.insert_one(doc)
+
+    return jsonify({'msg': 'To-do 등록 완료'})
+
+
+@app.route('/todo', methods=["GET"])
+def todo_list():
+    t_list = list(db.todo_list.find({}, {'_id': False}))
+    print(t_list)
+    return jsonify({'comments': t_list})
+
+
+@app.route("/todo/done", methods=["POST"])
+def todo_done():
+    num_receive = request.form['num_give']
+    db.todo_list.update_one({'num': int(num_receive)}, {'$set': {'done': 1}})
+    # 데이터가 넘어올때 문자타입으로 넘어오므로 int타입으로 형변환 시켜줘야함
+
+    return jsonify({'msg': 'To-do 완료!'})
+
+
+@app.route("/todo/cancel", methods=["POST"])
+def todo_cancel():
+    num_receive = request.form['num_give']
+    db.todo_list.update_one({'num': int(num_receive)}, {'$set': {'done': 0}})
+    # 데이터가 넘어올때 문자타입으로 넘어오므로 int타입으로 형변환 시켜줘야함
+
+    return jsonify({'msg': 'To-do 취소!'})
+
+
+@app.route('/study', methods=["POST"])
+def study_comment():
+    date_receive = request.form['date_give']
+    user_receive = request.form['user_give']
+    comment_receive = request.form['comment_give']
+
+    s_list = list(db.study_list.find({}, {'_id': False}))
+    count = len(s_list) + 1
+    doc = {
+        'num': count,
+        'date': date_receive,
+        'user': user_receive,
+        'comment': comment_receive,
+        'done': 0
+
+    }
+    db.study_list.insert_one(doc)
+
+    return jsonify({'msg': 'Study 등록 완료'})
+
+
+@app.route('/study', methods=["GET"])
+def study_list():
+    s_list = list(db.study_list.find({}, {'_id': False}))
+    return jsonify({'comments': s_list})
+
+
+@app.route("/study/done", methods=["POST"])
+def study_done():
+    num_receive = request.form['num_give']
+    db.study_list.update_one({'num': int(num_receive)}, {'$set': {'done': 1}})
+    # 데이터가 넘어올때 문자타입으로 넘어오므로 int타입으로 형변환 시켜줘야함
+
+    return jsonify({'msg': 'Study 완료!'})
+
+
+@app.route("/study/cancel", methods=["POST"])
+def study_cancel():
+    num_receive = request.form['num_give']
+    db.study_list.update_one({'num': int(num_receive)}, {'$set': {'done': 0}})
+    # 데이터가 넘어올때 문자타입으로 넘어오므로 int타입으로 형변환 시켜줘야함
+
+    return jsonify({'msg': 'Study 취소!'})
+
 
 @app.route('/sign_up')
 def sign_up():
@@ -95,6 +195,8 @@ def api_signup():
         db.login.insert_one({'id': id_receive, 'pw': pw_hash, 'nick': nickname_receive})
 
         return jsonify({'result': 'success', 'msg': '회원가입 완료!'})
+
+
 @app.route('/api/login', methods=['POST'])
 def api_login():
     id_receive = request.form['id_give']
@@ -124,7 +226,6 @@ def api_login():
         # 찾지 못하면
     else:
         return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
-
 
 
 if __name__ == '__main__':
