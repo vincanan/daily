@@ -14,16 +14,16 @@ import datetime
 
 
 ca = certifi.where()
-<<<<<<< HEAD
+
 client = MongoClient('mongodb+srv://kimnoc707:vkfkd0312@cluster0.wpr6ivo.mongodb.net/?retryWrites=true&w=majority',
                      tlsCAFile=ca)
 db = client.sparta_project
 
-=======
+
 client = MongoClient('mongodb+srv://test:sparta@cluster0.qli9s79.mongodb.net/Cluster0?retryWrites=true&w=majority',
                      tlsCAFile=ca)
 db = client.dbsparta
->>>>>>> hojii
+
 
 SECRET_KEY = 'hojii'
 
@@ -43,7 +43,7 @@ def main():
     return render_template('index.html')
 
 
-<<<<<<< HEAD
+
 @app.route('/daily', methods=["POST"])
 def daily_comment():
     date_receive = request.form['date_give']
@@ -71,8 +71,7 @@ def daily_list():
     return jsonify({'comments': d_list})
 
 
-=======
->>>>>>> hojii
+
 @app.route('/sign_up')
 def sign_up():
     return render_template('sign_up.html')
