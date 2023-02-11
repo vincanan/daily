@@ -28,7 +28,7 @@ body {
     background-size: cover;
     opacity: 1;
     z-index: -2;
-    background-color: snow;
+    background-color: #8E8E8E;
 }
 .section_wrap {
     align-items: center;
@@ -170,4 +170,17 @@ li {
 }
 
 h2 { font-size : 20px; display: flex;}
+
+#daily-list{
+    display: flex;
+    flex-direction: column;
+}
+#study-list{
+    display: flex;
+    flex-direction: column;
+}
+#todo-list{
+    display: flex;
+    flex-direction: column;
+}
 

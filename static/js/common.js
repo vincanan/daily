@@ -64,14 +64,14 @@
                     if (user == user_id && date == now_date) {
                         if (done == 0) {
                             temp_html = `
-                                <li>
+                                <li class="comment_wrap">
                                     <h2>✨ ${comment}</h2>
                                     <button onclick="done_daily(${num})" type="button" class="btn btn-outline-primary">완료!</button>
                                 </li>
                             `
                         } else {
                             temp_html = `
-                                <li>
+                                <li class="comment_wrap">
                                     <h2>✅ ${comment}</h2>
                                     <button type="button" onclick="cancel_daily(${num})" type="button" class="btn btn-outline-danger">취소</button>
                                 </li>
@@ -160,14 +160,14 @@
                     if (user == user_id && date == now_date) {
                         if (done == 0) {
                             temp_html = `
-                                <li>
+                                <li class="comment_wrap">
                                     <h2>✨ ${comment}</h2>
                                     <button onclick="done_todo(${num})" type="button" class="btn btn-outline-primary">완료!</button>
                                 </li>
                             `
                         } else {
                             temp_html = `
-                                <li>
+                                <li class="comment_wrap">
                                     <h2>✅ ${comment}</h2>
                                     <button type="button" onclick="cancel_todo(${num})" type="button" class="btn btn-outline-danger">취소</button>
                                 </li>
@@ -256,14 +256,14 @@
                     if (user == user_id && date == now_date) {
                         if (done == 0) {
                             temp_html = `
-                                <li>
+                                <li class="comment_wrap">
                                     <h2>✨ ${comment}</h2>
                                     <button onclick="done_study(${num})" type="button" class="btn btn-outline-primary">완료!</button>
                                 </li>
                             `
                         } else {
                             temp_html = `
-                                <li>
+                                <li class="comment_wrap">
                                     <h2>✅ ${comment}</h2>
                                     <button type="button" onclick="cancel_study(${num})" type="button" class="btn btn-outline-danger">취소</button>
                                 </li>
