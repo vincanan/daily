@@ -71,6 +71,59 @@ def daily_list():
     return jsonify({'comments': d_list})
 
 
+@app.route('/todo', methods=["POST"])
+def todo_comment():
+    date_receive = request.form['date_give']
+    user_receive = request.form['user_give']
+    comment_receive = request.form['comment_give']
+
+    t_list = list(db.todo_list.find({}, {'_id': False}))
+    count = len(t_list) + 1
+    doc = {
+        'num': count,
+        'date': date_receive,
+        'user': user_receive,
+        'comment': comment_receive,
+        'done': 0
+
+    }
+    db.todo_list.insert_one(doc)
+
+    return jsonify({'msg': 'Daily 등록 완료'})
+
+
+@app.route('/todo', methods=["GET"])
+def todo_list():
+    t_list = list(db.todo_list.find({}, {'_id': False}))
+    return jsonify({'comments': t_list})
+
+@app.route('/study', methods=["POST"])
+def study_comment():
+    date_receive = request.form['date_give']
+    user_receive = request.form['user_give']
+    comment_receive = request.form['comment_give']
+
+    s_list = list(db.study_list.find({}, {'_id': False}))
+    count = len(s_list) + 1
+    doc = {
+        'num': count,
+        'date': date_receive,
+        'user': user_receive,
+        'comment': comment_receive,
+        'done': 0
+
+    }
+    db.study_list.insert_one(doc)
+
+    return jsonify({'msg': 'Daily 등록 완료'})
+
+
+@app.route('/study', methods=["GET"])
+def todo_list():
+    s_list = list(db.study_list.find({}, {'_id': False}))
+    return jsonify({'comments': s_list})
+
+
 
 @app.route('/sign_up')
 def sign_up():
